@@ -52,6 +52,10 @@ class LessonsController < ApplicationController
     end
   end
 
+  # def search
+  #   @lesson =Lesson.where("title LIKE ?", "%" + params[:q] + "%")
+  # end
+
   private
 
   def lesson_params

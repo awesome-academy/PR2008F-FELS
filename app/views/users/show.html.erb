@@ -1,0 +1,15 @@
+<% provide(:title, "Account") %>
+
+<div class="user-show-wrapper">
+    <h2>My Account</h2>
+      <div class="user-info-content">
+        <h3>ACCOUNT DETAILS</h3>
+        <p><%= @user.name %></p>
+        <p><%= @user.email %></p>
+        <hr>
+        <%= link_to "Chinh sua Profile", edit_user_registration_path %>
+        <hr>
+        <%= link_to "View all your test's result", profile_results_path %>
+      </div>
+    </div>
+</div>
