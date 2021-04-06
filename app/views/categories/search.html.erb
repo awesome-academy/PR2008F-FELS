@@ -1,0 +1,12 @@
+
+
+
+<ul>
+  <% @categories.each do |category| %>
+    <li>
+      <h3>
+        <%= link_to categories.title, controller: "categories", action: "show", id: categories._id%>
+      </h3>
+    </li>
+  <% end %>
+</ul>

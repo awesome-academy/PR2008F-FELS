@@ -12,6 +12,7 @@
           <a class="gioi-thieu" aria-current="page" href="#">Gới Thiệu</a>
         </li>
       </ul>
+<<<<<<< HEAD
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class=" btn-search" type="submit">Search</button>
@@ -27,6 +28,33 @@
       <button type="button" class="menu-modal" data-bs-toggle="modal" data-bs-target="#exampleModal" >
          <i class="fas fa-user"></i>
       </button>
+=======
+
+      <%= form_for search_path, method: :get do |f| %>
+        <p>
+          <%= f.label "Search for" %>
+          <%= text_field_tag :q, params[:q] %>
+          <%= submit_tag "Go", name: nil %>
+        </p>
+      <% end %>
+
+      <div class="dropdown ">
+        <a class="btn menu-collor dropdown-toggle " role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+         <i class="fas fa-user"></i>
+        </a>
+
+        <ul class="dropdown-menu " aria-labelledby="dropdownMenuLink">
+          <% if user_signed_in? %>
+            <li><a class="dropdown-item" href="/profile">Profile </a></li>
+            <li class="dropdown-item logout"><%= link_to(destroy_user_session_path, method: :delete) do %>
+                <span>Log out</span>
+                  <% end %>
+            </li>
+            <% else %>
+            <div class="login">
+              <%= link_to(new_user_session_path) do %>
+                <span>Login</span>
+>>>>>>> complete
 
       <!-- Modal -->
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
