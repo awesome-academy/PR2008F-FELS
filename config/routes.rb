@@ -11,12 +11,7 @@ Rails.application.routes.draw do
     post "signin" => "devise/sessions#create"
     delete "signout" => "devise/sessions#destroy"
   end
-
-  namespace :admin do
-    resources :words
-    resources :categories
-    resources :lessons
-  end
+  resources :categories
   resources :words
   resources :lessons
 end

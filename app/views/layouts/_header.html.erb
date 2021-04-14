@@ -12,17 +12,19 @@
           <a class="gioi-thieu" aria-current="page" href="http://localhost:3000"><i class="fas fa-home"></i>  Home</a>
         </li>
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class=" btn-search" type="submit">Search</button>
-      </form>
-        <% if user_signed_in? %>
-          <li class="log_out">
-            <%= link_to(destroy_user_session_path, method: :delete) do %>
-              <span>Log out</span>
-            <% end %>
-          </li>
-        <% else %>
+      <div class="search">
+        <%= form_for :term, url: categories_path, method: :get do |form| %>
+          <%= text_field_tag :term, params[:term], class:"form-control" %>
+          <%= submit_tag "Search", class:" btn-search ", name: nil %>
+        <% end %>
+      </div>
+      <% if user_signed_in? %>
+        <li class="log_out">
+          <%= link_to(destroy_user_session_path, method: :delete) do %>
+            <span>Log out</span>
+          <% end %>
+        </li>
+      <% else %>
       <!-- Button trigger modal -->
       <button type="button" class="menu-modal" data-bs-toggle="modal" data-bs-target="#exampleModal" >
          <i class="fas fa-user"></i>
