@@ -1,0 +1,72 @@
+<div>
+<% if @categories %>
+ <div class="contenner-courses">
+   <div class="grid-container">
+      <% @categories.each do |category|%>
+        <div class="div-couurses" data-aos="flip-left">
+        <%= link_to(new_lesson_path(category_id: category.id)) do %>
+          <div class="item">
+            <%= image_tag category.photo_url.to_s %>
+          </div>
+          <%= category.name %>
+        <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% else %>
+  <p>Your search did not match any documents.</p>
+<% end %>
+<div class ="wrapper_mrh">
+  <div class="mrh_content">
+    <h2 class="ladi_paragraph" data-aos="fade-left">
+      <span style="font-weight: bold;">
+        EZI-LEARNING HIỂU KHÓ<br>
+        KHĂN CỦA BẠN
+      </span>
+    </h2>
+    <div class="ladi_hr" data-aos="fade-up"></div>
+    <div class="ladi-group">
+      <div id="PARAGRAPH53" class="ladi-element">
+        <p class="ladi-paragraph">Tất cả: Giảng Viên, Trợ Giảng, Phương Pháp Học đều xoay quanh một điều làm sao để
+        giúp học viên dễ dàng tiếp thu nhất.</p>
+      </div>
+      <div id="HEADLINE52" class="ladi-element">
+        <h5 class="ladi-headline">Dễ Dàng</h5>
+      </div>
+    </div>
+    <div class="ladi-group">
+      <div id="PARAGRAPH56" class="ladi-element">
+        <p class="ladi-paragraph">Không chỉ học tiếng Anh xuông mà mỗi học viên sẽ có lộ trình học riêng để áp dụng
+          hiệu quả cho việc học, việc làm sau này.</p>
+      </div>
+      <div id="HEADLINE57" class="ladi-element">
+        <h5 class="ladi-headline">Hiệu Quả</h5>
+      </div>
+    </div>
+    <div  id="nhanh-chong">
+        <div id="HEADLINE260" class="ladi-element">
+          <h5 class="ladi-headline">Nhanh Chóng</h5>
+      </div>
+      <div id="PARAGRAPH259" >
+          <p class="ladi-paragraph">Đặc biệt - các khóa học chỉ kéo dài từ 3-6 tháng với lịch học 2 buổi/tuần (3 buổi
+          cho khóa 6 tháng) mà không hề bị giảm chất lượng.</p>
+      </div>
+
+    </div>
+    <div id="HEADLINE263" >
+      <div class="ladi_headline">Bạn không tin ư?<br> Hẹn lịch tư vấn tại trung tâm ngay!</div>
+    </div>
+    <div id="BUTTON262" class="ladi-element">
+      <div class="ladi-button">
+        <div id="BUTTON_TEXT262" class="ladi-element" data-aos="flip-left">
+          <p class="ladi-headline"> Nhận tư vấn miễn phí</p>
+        </div>
+      </div>
+    </div>
+    <div class="ladi_image">
+      <div class= "ladi_image_child" data-aos="fade-left"><div>
+    </div>
+  </div>
+</div>
+</div>

@@ -1,6 +1,6 @@
 .header-background{
   background-color: #013a66;
-  height: 80px;
+  height: 100px;
 }
 
 .w-100 {
@@ -58,10 +58,16 @@
 .navbar-expand-lg .navbar-collapse{
   padding: 0 110px;
 }
-.d-flex {
+.search form{
+  position: relative;
   height: 35px;
+  display: flex;
+  justify-content: center;
+  right: 20px;
+  input{
+    margin-left: 10px;
+  }
 }
-
 //slide home
 .carousel-inner .active h4{
   margin-bottom: 20px;
@@ -307,6 +313,7 @@
   text-align: center;
   padding: 10px  0;
   color: #003359;
+  background-color: #F2F3F5;
 }
 .contenner-courses .text-courses h2{
   margin-top: 50px;
@@ -318,7 +325,6 @@
 .contenner-courses .grid-container{
   padding: 50px 200px;
   display: grid;
-  margin-top: 20px;
   grid-template-columns: auto auto auto auto;
   background-color: #F2F3F5;
   z-index: -50;

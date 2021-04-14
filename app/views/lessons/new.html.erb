@@ -37,10 +37,10 @@
   </div>
 
   <div class="form-word" id="js_form_word">
-    <%= form_with model: @lesson, url: lessons_path, method: :post do |f| %>
+     <%= form_with model: @lesson, url: lessons_path, method: :post, id:"js_my_form" do |f| %>
       <%= f.fields_for :lesson_words do |ff| %>
         <%= ff.hidden_field :word_id, value: ff.object.word_id %>
-        <div class="word"
+        <div class="word">
           <%= ff.object.word.content.html_safe %>
         </div>
         <div class="answer">
@@ -88,8 +88,7 @@
         document.getElementById("time-counting").innerHTML = minutes + "m " + seconds + "s ";
 
         if (distance == 0) {
-          clearInterval(x);
-          document.getElementById("demtime-countingo").innerHTML = "EXPIRED";
+          document.getElementById("js_my_form").submit();
         }
       }, 1000);
   });
