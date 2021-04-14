@@ -1,0 +1,18 @@
+<% if @categories %>
+ <div class="contenner-courses">
+   <div class="grid-container">
+      <% @categories.each do |category|%>
+        <div class="div-couurses" data-aos="flip-left">
+        <%= link_to(new_lesson_path(category_id: category.id)) do %>
+	                        		<div class="item">
+										<%= image_tag category.photo_url.to_s %>
+									</div>
+              <%= category.name %>
+        <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% else %>
+  <p>Your search did not match any documents.</p>
+<% end %>

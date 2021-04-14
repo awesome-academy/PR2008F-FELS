@@ -32,6 +32,9 @@ gem 'ckeditor'
 gem 'carrierwave'
 gem 'cancancan'
 gem "pagy"
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
+gem 'searchkick'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

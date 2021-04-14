@@ -1,0 +1,115 @@
+%= provide(:title, "Exam Result")%>
+<div class="row jumbotron">
+  <div class="create-test container my-4">
+    <div class="create-test__content-flex">
+      <div id="questionTabs">
+        <%= form_with model: [@course, @exam], class: "d-flex test-view form_of_dat" do |form| %>
+        <%= form.hidden_field :course_id,value: @course.id %>
+        <div class="test-view__left">
+          <div class="flex">
+            <div class="list-heading">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-6">Question List</div>
+                  <div class="col-md-6">
+                    <p id="countdown" class="text-danger"></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div class="d-flex flex-column">
+            <div class="d-flex flex-column label-question justify-content-center border-bottom">
+              <div class="d-flex flex-row justify-content-between">
+                <div class="d-flex align-items-center">
+                  <div class="border-question border-available"></div>
+                  <div class="pl-2 text">
+                    Available
+                  </div>
+                </div>
+                <div class="d-flex align-items-center">
+                  <div class="border-question border-answered"></div>
+                  <div class="pl-2 text">
+                    Answered
+                  </div>
+                </div>
+                <div class="d-flex align-items-center">
+                  <div class="border-question border-not-view"></div>
+                  <div class="pl-2 text">
+                    Not yet
+                  </div>
+                </div>
+              </div>
+              <div class="note d-flex align-items-center">
+                <span role="img" aria-label="exclamation-circle" class="anticon anticon-exclamation-circle">
+                  <svg viewBox="64 64 896 896" focusable="false" class="" data-icon="exclamation-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+                    <path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path>
+                    <path d="M464 688a48 48 0 1096 0 48 48 0 10-96 0zm24-112h48c4.4 0 8-3.6 8-8V296c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8z"></path>
+                  </svg>
+                </span>
+                <span class="ml-2">Click on the question for detail</span>
+              </div>
+            </div>
+            <ul class="d-flex flex-wrap question-list tabs">
+              <% @questions.each_with_index do |q, index| %>
+              <li class="list-item tab-link" data-tab="question-<%= q.id %>">
+                <a href="#question-<%= q.id %>" data-toggle="tab">
+                  <div class="question-item d-flex align-items-center justify-content-center question-<%= q.id %>"><%= index + 1 %></div>
+                </a>
+              </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+        <div class="test-view__right" id="test-view">
+          <div class="tab-contents">
+            <%= form.fields_for :results do |r| %>
+            <%= r.hidden_field :question_id, value: @questions[r.index].id %>
+            <div class="tab-content" id="question-<%= @questions[r.index].id %>">
+              <div class="test-view__exam-detail">
+                <div class="d-flex flex-column justify-content-between align-item-center">
+                  <div class="question-heading">
+                    Question <%= r.index + 1 %>
+                  </div>
+                  <div class="my-4">
+                    <div class="md-contents">
+                      <p><%= @questions[r.index].question_name %></p>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+              </div>
+              <div class="mt-2">
+                <div class="d-flex flex-column question-answers v-answers">
+                  <div class="title-note">
+                    This is your answer here:
+                  </div>
+                  <div class="input-group d-flex flex-column">
+                    <% @questions[r.index].answers.each do |answer| %>
+                    <div class="d-flex align-item-center form-check pt-2">
+                      <%= r.check_box :answer_id, {class: "answer-checkboxes", id: "answer#{answer.id}"}, answer.id, false %>
+                      <div class="md-contents">
+                        <label class="form-check-label" for="answer<%=answer.id%>">
+                        <%= answer.answer_content %>
+                        </label>
+                      </div>
+                    </div>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <% end %>
+            <div class="d-flex justify-content-between">
+              <a class="btn btn-warning btn-sm previous-question">&lt&lt Previous Question</a>
+              <a class="btn btn-warning btn-sm next-question">Next Question &gt&gt</a>
+              <%= form.submit "Submit", class: "btn btn-primary btn-sm"%>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

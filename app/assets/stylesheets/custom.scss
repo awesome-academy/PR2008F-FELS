@@ -58,8 +58,15 @@
 .navbar-expand-lg .navbar-collapse{
   padding: 0 110px;
 }
-.d-flex {
+.search form{
+  position: relative;
   height: 35px;
+  display: flex;
+  justify-content: center;
+  right: 20px;
+  input{
+    margin-left: 10px;
+  }
 }
 
 //slide home
